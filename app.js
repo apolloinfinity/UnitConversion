@@ -25,13 +25,6 @@ const UIController = (function() {
   };
 
   return {
-    getInput: function(){
-      return {
-        inputNum: document.querySelector(DOMStrings._inputNum).value,
-      }
-      
-      console.log(inputNum);
-    },
     getDOMStrings: function() {
       return DOMStrings;
     }
@@ -44,18 +37,26 @@ const UIController = (function() {
 const controller = (function(UICtrl) {
   const setUpListners = function() {
     // Accesses Object with 
-    var DOM = UIController.getDOMStrings();
-    console.log(DOM._inputNum.value);
+    const DOM = UIController.getDOMStrings();
+    // console.log(DOM)
+    const inputVal = document.querySelector(DOM._inputNum);
+    inputVal.addEventListener('input', function(e){
+      let inputValue = inputVal.value
+      document.querySelector(DOM.outputGrams).innerHTML = (inputValue/ 0.022046).toFixed(2);
+      document.querySelector(DOM.outputKilos).innerHTML =(inputValue / 2.2046).toFixed(2) ;
+      document.querySelector(DOM.outputOunces).innerHTML = (inputValue * 16).toFixed(2);
+    })
   };
 
-  const ctrlUpdate = function(){
-    const input = UICtrl.getInput();
-  }
-
+  // const ctrlUpdate = function(){
+  //   const input = UICtrl.getInput();
+  //   console.log(input)
+  // }
   return {
     init: function() {
       console.log("App started.");
       setUpListners();
+      // ctrlUpdate();
     }
   };
 })(UIController);
