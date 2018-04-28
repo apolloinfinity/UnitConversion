@@ -1,18 +1,12 @@
 // document.getElementById("output").style.visibility = "hidden";
-// init();
 // document.getElementById("lbsInput").addEventListener("input", function(e) {
 //   document.getElementById("output").style.visibility = "visible";
 //   let lbs = e.target.value;
-//   document.getElementById("gramsOutput").innerHTML =
-//   document.getElementById("kgOutput").innerHTML =
+//   document.getElementById("gramsOutput").innerHTML = lbs / 0.0022046;
+//   document.getElementById("kgOutput").innerHTML = lbs / 2.2046;
 //   document.getElementById("ozOutput").innerHTML = lbs * 16;
 // });
 
-// function massConversion(){
-//   let lbsToGrams = (lbs / 0.022046).toFixed(2);
-//   let lbsToKilos = (lbs / 2.2046).toFixed(2);
-//   let lbsToOz = lbs * 16;
-// }
 
 var Conversion;
 
@@ -21,7 +15,8 @@ const UIController = (function() {
     _inputNum: "#UnitInput",
     outputGrams: "#gramsOutput",
     outputKilos: "#kgOutput",
-    outputOunces: "#ozOutput"
+    outputOunces: "#ozOutput",
+    outputPane: '#output'
   };
 
   return {
