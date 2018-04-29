@@ -11,17 +11,27 @@
 var Conversion;
 
 const UIController = (function() {
-  const DOMStrings = {
-    _inputNum: "#UnitInput",
-    outputGrams: "#gramsOutput",
-    outputKilos: "#kgOutput",
-    outputOunces: "#ozOutput",
-    outputPane: '#output'
+  'use strict';
+  const OutputStrings = {
+    inputNum: "#UnitInput",
+    outputCent: "#centOutput",
+    outputKilos: "#kiloOutput",
+    outputImperial: "#imperialOutput",
+    outputPane: "#output"
   };
+
+  const UnitStrings = {
+    mass: "#mass",
+    length: "#length",
+    volume: "#volume"
+  }
 
   return {
     getDOMStrings: function() {
-      return DOMStrings;
+      return OutputStrings;
+    },
+    getUnitStrings: function(){
+      return UnitStrings;
     }
   };
 })();
@@ -31,16 +41,19 @@ const UIController = (function() {
 
 const controller = (function(UICtrl) {
   const setUpListners = function() {
-    // Accesses Object with 
+    // Acces object inside of UIController
     const DOM = UIController.getDOMStrings();
-    // console.log(DOM)
-    const inputVal = document.querySelector(DOM._inputNum);
+    const Unit = UIController.getUnitStrings();
+
+    // 
+    const inputVal = document.querySelector(DOM.inputNum);
     inputVal.addEventListener('input', function(e){
-      let inputValue = inputVal.value
-      document.querySelector(DOM.outputGrams).innerHTML = (inputValue/ 0.022046).toFixed(2);
+      let inputValue = e.target.value
+      document.querySelector(DOM.outputCent).innerHTML = (inputValue/ 0.022046).toFixed(2);
       document.querySelector(DOM.outputKilos).innerHTML =(inputValue / 2.2046).toFixed(2) ;
-      document.querySelector(DOM.outputOunces).innerHTML = (inputValue * 16).toFixed(2);
+      document.querySelector(DOM.outputImperial).innerHTML = (inputValue * 16).toFixed(2);
     })
+    
   };
 
   // const ctrlUpdate = function(){

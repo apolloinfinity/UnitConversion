@@ -19,10 +19,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-4 d-flex justify-content-center btn-group btn-group-lg">
-                    <button class="btn btn-info" type="submit">Mass <i class="fas fa-weight"></i></button>
-                    <button class="btn btn-info" type="submit">Length <i class="fas fa-tape"></i></button>
-                    <button class="btn btn-info" type="submit">Volume <i class="fas fa-flask"></i></button>
-                    
+                <button class="btn btn-info" id="mass">Mass
+                    <i class="fas fa-weight"></i>
+                </button>
+                <button class="btn btn-info" id="length">Length
+                    <i class="fas fa-tape"></i>
+                </button>
+                <button class="btn btn-info" id="volume">Volume
+                    <i class="fas fa-flask"></i>
+                </button>
+
             </div>
         </div>
         <div class="row">
@@ -42,26 +48,27 @@
                 <div id="output">
                     <div class="card bg-primary mb-2">
                         <div class="card-body">
-                            <h4>Grams:</h4>
-                            <div id="gramsOutput"></div>
+                            <h4><span id="cent"></span></h4>
+                            <div id="centOutput"></div>
                         </div>
                     </div>
 
                     <div class="card bg-success mb-2">
                         <div class="card-body">
-                            <h4>Kilograms:</h4>
-                            <div id="kgOutput"></div>
+                            <h4><span id="kilos"></span></h4>
+                            <div id="kiloOutput"></div>
                         </div>
                     </div>
 
                     <div class="card bg-danger mb-2">
                         <div class="card-body">
-                            <h4>Ounces:</h4>
-                            <div id="ozOutput"></div>
+                            <h4><span id="imperial"></span></h4>
+                            <div id="imperialOutput"></div>
                         </div>
                     </div>
 
                 </div>
+                
             </div>
         </div>
 
