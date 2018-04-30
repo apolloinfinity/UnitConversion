@@ -54,9 +54,19 @@ const controller = (function(UICtrl) {
       document.querySelector(DOM.outputImperial).innerHTML = (inputValue * 16).toFixed(2);
     })
     
+    const massSelect = document.querySelector(Unit.mass).addEventListener('click', function(){
+      document.querySelector('#cent').innerHTML = "Grams: ";
+    })
+
+    const lengthSelect = document.querySelector(Unit.length).addEventListener('click', function (){
+      document.querySelector("#cent").innerHTML = "Liters: "
+    })
+
+    if 
+
   };
 
-  // const ctrlUpdate = function(){
+  // const ctrlUpdate = function(){ 
   //   const input = UICtrl.getInput();
   //   console.log(input)
   // }
