@@ -8,10 +8,19 @@
 // });
 
 
+/*
+Formulas for conversions.
+Centimeters = feet * 30.48
+Meters = feet * 0.3048
+Kilo Meters
+
+*/
+'use strict';
+
 var Conversion;
 
-const UIController = (function() {
-  'use strict';
+const UIController = (function () {
+
   const OutputStrings = {
     inputNum: "#UnitInput",
     outputCent: "#centOutput",
@@ -26,12 +35,28 @@ const UIController = (function() {
     volume: "#volume"
   }
 
+  const UnitNames = {
+    grams: "Grams: ",
+    kgrams : "Kilograms: ",
+    oz: "Ounces: ",
+    cmeter: "Centimeters: ",
+    meters: "Meters: ",
+    kmeters: "Kilometers: ",
+    inches: "Inches: ",
+    mliters: "Milliter: ",
+    liters: "Liters: ",
+    quart: "Quart: "
+  }
+
   return {
-    getDOMStrings: function() {
+    getDOMStrings: function () {
       return OutputStrings;
     },
-    getUnitStrings: function(){
+    getUnitStrings: function () {
       return UnitStrings;
+    },
+    getUnitNames: function(){
+      return UnitNames;
     }
   };
 })();
@@ -39,30 +64,37 @@ const UIController = (function() {
 // For testing
 // UIController.getInput();
 
-const controller = (function(UICtrl) {
-  const setUpListners = function() {
+const controller = (function (UICtrl) {
+  const setUpListners = function () {
     // Acces object inside of UIController
     const DOM = UIController.getDOMStrings();
     const Unit = UIController.getUnitStrings();
-
-    // 
+    const UnitNames = UIController.getUnitNames();
     const inputVal = document.querySelector(DOM.inputNum);
-    inputVal.addEventListener('input', function(e){
-      let inputValue = e.target.value
-      document.querySelector(DOM.outputCent).innerHTML = (inputValue/ 0.022046).toFixed(2);
-      document.querySelector(DOM.outputKilos).innerHTML =(inputValue / 2.2046).toFixed(2) ;
-      document.querySelector(DOM.outputImperial).innerHTML = (inputValue * 16).toFixed(2);
-    })
-    
-    const massSelect = document.querySelector(Unit.mass).addEventListener('click', function(){
-      document.querySelector('#cent').innerHTML = "Grams: ";
+
+    const massSelect = document.querySelector(Unit.mass).addEventListener('click', function () {
+      document.querySelector(DOM.outputCent).innerHTML = UnitNames.grams;
+      document.querySelector(DOM.outputKilos).innerHTML = UnitNames.kgrams;
+      document.querySelector(DOM.outputImperial).innerHTML = UnitNames.oz;
+
+      console.log("Clicked mass button");
     })
 
-    const lengthSelect = document.querySelector(Unit.length).addEventListener('click', function (){
-      document.querySelector("#cent").innerHTML = "Liters: "
+    const lengthSelect = document.querySelector(Unit.length).addEventListener('click', function () {
+      document.querySelector(DOM.outputCent).innerHTML = UnitNames.cmeter;
+      document.querySelector(DOM.outputKilos).innerHTML = UnitNames.kmeters;
+      document.querySelector(DOM.outputImperial).innerHTML = UnitNames.inches;
+
+      console.log("Clicked length button");
     })
 
-    if 
+    const volumeSelect = document.querySelector(Unit.volume).addEventListener('click', function () {
+      document.querySelector(DOM.outputCent).innerHTML = UnitNames.cmeter;
+      document.querySelector(DOM.outputKilos).innerHTML = UnitNames.kmeters;
+      document.querySelector(DOM.outputImperial).innerHTML = UnitNames.inches;
+
+      console.log("Clicked volume button");
+    })
 
   };
 
@@ -71,7 +103,7 @@ const controller = (function(UICtrl) {
   //   console.log(input)
   // }
   return {
-    init: function() {
+    init: function () {
       console.log("App started.");
       setUpListners();
       // ctrlUpdate();
