@@ -121,7 +121,7 @@ const controller = (function (UICtrl) {
         let gallons = e.target.value;
         document.querySelector(DOM.outputCent).innerHTML = milliters + (gallons * 3785.411784).toFixed(2);
         document.querySelector(DOM.outputKilos).innerHTML = liters + (gallons * 3.78541178).toFixed(6);
-        document.querySelector(DOM.outputImperial).innerHTML = quarts + (gallons * 4).toFixed(2);
+        document.querySelector(DOM.outputImperial).innerHTML =quarts + (gallons * 4).toFixed(2);
       });
 
       console.log("Clicked volume button");
